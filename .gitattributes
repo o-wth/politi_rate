@@ -1,4 +1,5 @@
 lib/*.dart linguist-generated=false
 test/*.dart linguist-generated=false
+api/*.js linguist-generated=false
 ios/** linguist-generated
 android/** linguist-generated
