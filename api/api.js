@@ -44,7 +44,7 @@ router.get('/politician/', async (req, res) => {
                     if(name == fullname) {
                         return resolve({party: legislator.terms[legislator.terms.length-1].party, bioguide: legislator.id.bioguide, phone: legislator.terms[legislator.terms.length-1].phone,
                         state: legislator.terms[legislator.terms.length-1].state, chambername: legislator.terms[legislator.terms.length-1].type})
-                    } 
+                    }
                 });
             })
         });
@@ -54,7 +54,7 @@ router.get('/politician/', async (req, res) => {
             headers: {
                 'X-API-Key': keys.phone2actionKey
             },
-            qs: {address:"VA"}
+            qs: {address:"Virginia"}
         }
 
         var action = await new Promise((resolve, reject) => {
@@ -67,7 +67,7 @@ router.get('/politician/', async (req, res) => {
                         legislator.socials.forEach((social, i) => {
                             if(legislator.identifier_type='TWITTER')
                                 val = i;
-                        }) 
+                        })
                         return resolve({party: legislator.party, twitterHandle: legislator.socials[val].identifier_value, phone: legislator.office_location.phone_1,
                         state: legislator.office_details.state, chambername: legislator.office_details.chamber_details.name})
                     }
@@ -164,12 +164,12 @@ async function getScore(username, name) {
                 'sortBy': 'recency',
                 'language': ['en'],
                 'publishedAtStart': 'NOW-30DAYS',
-                'publishedAtEnd': 'NOW', 
+                'publishedAtEnd': 'NOW',
             };
 
-        
+
             let callback = async function(error, data, response) {
-        
+
                 let {nScore, threeStories} = await new Promise(async (resolve, reject) => {
                     let newsScore = 0;
                     let arr = []
@@ -182,7 +182,7 @@ async function getScore(username, name) {
                                 arr.push(data.stories[i].title);
 
                             switch(data.stories[i].sentiment.title.polarity) {
-                                
+
                                 case('negative'):
                                     newsScore-=2;
                                     break;
@@ -196,11 +196,11 @@ async function getScore(username, name) {
                         }
                     }
                     return resolve({nScore: newsScore, threeStories: arr})
-                }); 
-                return resolveOuter({score: nScore + twitterScore, threeStories: threeStories})           
+                });
+                return resolveOuter({score: nScore + twitterScore, threeStories: threeStories})
             };
             apiInstance.listStories(opts, callback);
-        })        
+        })
     })
 }
 
@@ -210,7 +210,7 @@ async function checkIfContainsName(fullname) {
         headers: {
             'X-API-Key': keys.phone2actionKey
         },
-        qs: {address:"VA"}
+        qs: {address:"Virginia"}
     }
     return new Promise((resolve, reject) => {
         request.get(opts, async (err, res, body) => {
