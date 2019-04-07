@@ -1,0 +1,25 @@
+{
+  "name": "politi-rate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "Politicians"
+  ],
+  "author": "Autin, Sahil, Sagar, Sumanth",
+  "license": "MIT",
+  "dependencies": {
+    "aylien-news-api": "^2.0.2",
+    "aylien_textapi": "^0.7.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "google-search-scraper": "^0.1.0",
+    "knowledge-graph-js": "^1.4.0",
+    "request": "^2.88.0",
+    "twitter": "^1.7.1"
+  }
+}
