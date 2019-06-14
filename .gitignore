@@ -1,3 +1,6 @@
+api/twitterKeys.js
+api/endpoints.js
+
 # Miscellaneous
 *.class
 *.lock
