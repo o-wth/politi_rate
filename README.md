@@ -24,7 +24,7 @@ module.exports = {
 }
 ```
 
--   create 'api/twitterKeys.js' with the following contents:
+-   create `api/twitterKeys.js` with the following contents:
 
 ```js
 module.exports = {
